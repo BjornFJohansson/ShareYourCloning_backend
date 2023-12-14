@@ -119,6 +119,8 @@ LEcspKmN0ehyaVOsfO39v_dDSmI 10566
 LK6idufxMXFHL5shXakwO3lciMU 10566
 LK6idufxMXFHL5shXakwO3lciMU 10566
 
+
+
 QnsJ7ATZXSy2QuN4hy51SZw_aU0 9772
 QnsJ7ATZXSy2QuN4hy51SZw_aU0 9772
 QnsJ7ATZXSy2QuN4hy51SZw_aU0 9772
@@ -130,7 +132,137 @@ a9peylsIa95CkIMZ858Ooby9Ee0 9772
 
 Why do we get four QnsJ7... , but only three a9pey... ?
 
+lets look at them in detail:
 
+First four QnsJ7... are expected, two assemblies and then one of each of Example 6 and 9
+
+```
+Example 4
+QnsJ7ATZXSy2QuN4hy51SZw_aU0 9772 bp
+ -|1404bp_PCR_prod|198
+|                  \/
+|                  /\
+|                  198|name|224
+|                           \/
+|                           /\
+|                           224-
+|                              |
+ ------------------------------
+Example 10
+QnsJ7ATZXSy2QuN4hy51SZw_aU0 9772 bp
+ -|1404bp_PCR_pr_rc|224
+|                   \/
+|                   /\
+|                   224|name_rc|198
+|                               \/
+|                               /\
+|                               198-
+|                                  |
+ ----------------------------------
+
+
+
+
+Example 6
+QnsJ7ATZXSy2QuN4hy51SZw_aU0 9772 bp
+ -|name_rc|198
+|          \/
+|          /\
+|          198|1404bp_PCR_pr_rc|224
+|                               \/
+|                               /\
+|                               224|name_rc|30
+|                                           \/
+|                                           /\
+|                                           30-
+|                                              |
+ ----------------------------------------------
+
+Example 9
+QnsJ7ATZXSy2QuN4hy51SZw_aU0 9772 bp
+ -|name_rc|198
+|          \/
+|          /\
+|          198|1404bp_PCR_pr_rc|224
+|                               \/
+|                               /\
+|                               224|name_rc|67
+|                                           \/
+|                                           /\
+|                                           67-
+|                                              |
+ ----------------------------------------------
+
+```
+
+
+
+
+
+
+Same is true for a9pey... but only one copy of the Example 7
+
+This has to do with the design of the algorithm and how the results are filtered.
+
+When I designed it, the goal was
+
+1. as complete as possible
+2. predictable order of the outcome between runs
+
+
+
+
+
+```
+Example 5
+a9peylsIa95CkIMZ858Ooby9Ee0 9772 bp
+ -|1404bp_PCR_prod|67
+|                  \/
+|                  /\
+|                  67|name|224
+|                          \/
+|                          /\
+|                          224-
+|                             |
+ -----------------------------
+Example 8
+a9peylsIa95CkIMZ858Ooby9Ee0 9772 bp
+ -|1404bp_PCR_pr_rc|224
+|                   \/
+|                   /\
+|                   224|name_rc|67
+|                               \/
+|                               /\
+|                               67-
+|                                  |
+ ----------------------------------
+
+
+
+
+Example 7
+a9peylsIa95CkIMZ858Ooby9Ee0 9772 bp
+ -|name_rc|67
+|          \/
+|          /\
+|          67|1404bp_PCR_pr_rc|224
+|                              \/
+|                              /\
+|                              224|name_rc|30
+|                                          \/
+|                                          /\
+|                                          30-
+|                                             |
+ ---------------------------------------------
+```
+
+
+
+
+
+
+
+All assemblies in the order they come out:
 
 
 

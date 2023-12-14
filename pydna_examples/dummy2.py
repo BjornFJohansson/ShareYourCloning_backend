@@ -1,12 +1,13 @@
 from pydna.assembly import Assembly as Assembly_pydna
-from pydna.parsers import parse
+from pydna.parsers import parse_primers
+from pydna.readers import read
 
-primer = parse("../test_files/primers.fas", ds=False)
+primer = parse_primers("../test_files/primers.fas", ds=False)
 
 # I think these are equivalent to the sequences in the test
 # a = assembly.Assembly([GAL_GIN2, pCAPs_MX4blaster1_AgeI], limit=30)
-a = parse('dummy_a.gb')[0]
-b = parse('dummy_b.gb')[0]
+a = read('dummy_a.gb')
+b = read('dummy_b.gb')
 
 asm2 = Assembly_pydna([a, b], limit=30)
 
@@ -14,8 +15,10 @@ print('Linear assembles: =======================================')
 print()
 
 # All the linear assemblies contain the fragments a and b once
-for f in  asm2.assemble_linear():
+for i, f in  enumerate(asm2.assemble_linear()):
+    print("Example", i)
     print(f.figure())
+    print(f.detailed_figure())
 
 print()
 print()

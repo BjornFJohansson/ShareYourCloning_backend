@@ -15,6 +15,9 @@ for c in asm.assemble_circular():
     print(c.figure())
 
 
+asm.G
+
+
 print('>> linear')
 for c in asm.assemble_linear():
     print(c.seq)
@@ -36,3 +39,14 @@ for c in asm.assemble_linear():
 
 
 
+d = Dseqrecord('ttttttCCtttAtt')
+e = Dseqrecord('tttAttGGtttttt')
+
+asm2 = Assembly_pydna([d, e], limit=6)
+
+# These circular assemblies are all circularisations of the single fragments,
+# no sequence containing a and b is returned
+print('>> circular')
+for f in asm2.assemble_circular():
+    print(f.seq)
+    print(f.figure())

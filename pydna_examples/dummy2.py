@@ -2,7 +2,7 @@ from pydna.assembly import Assembly as Assembly_pydna
 from pydna.parsers import parse_primers
 from pydna.readers import read
 
-primer = parse_primers("../test_files/primers.fas", ds=False)
+primer = parse_primers("../test_files/primers.fas")
 
 # I think these are equivalent to the sequences in the test
 # a = assembly.Assembly([GAL_GIN2, pCAPs_MX4blaster1_AgeI], limit=30)
@@ -29,6 +29,16 @@ print()
 candidates2 = asm2.assemble_circular()
 
 # This particular output contains each fragment twice
+
+for i, c in enumerate(candidates2):
+    print("Example", i)
+    print(c.cseguid(), len(c), "bp")
+    print(c.figure())
+
+
+
+
+
 chosen = candidates2[3]
 print(chosen.seq.cseguid())
 print(chosen.figure())
